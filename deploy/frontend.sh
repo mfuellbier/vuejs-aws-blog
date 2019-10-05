@@ -1,11 +1,13 @@
-language: node_js
+# navigate into our frontend directory
+cd frontend/
 
-node_js:
-  - node
+# build our frontend project
+npm install
+npm run build
 
-jobs:
-  include:
-    - stage: deploy_frontend
-      script: ./deploy/frontend.sh
-    - stage: deploy_functions
-      script: ./deploy/functions.sh
+# navigate into the directory which contains
+# our built frontend
+cd dist/
+
+# Push to S3
+# We've still to do this
